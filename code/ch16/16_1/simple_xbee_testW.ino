@@ -1,0 +1,1 @@
+void setup() {    Serial.begin(9600);}void loop() {    Serial.print('X');    delay(1000);    Serial.print('O');    delay(1000);}

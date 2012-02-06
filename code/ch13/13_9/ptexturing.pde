@@ -1,0 +1,1 @@
+import processing.opengl.*;void setup() {    size(200, 200, OPENGL);}void draw() {    noStroke();    PImage a = loadImage("tmp.jpg");    beginShape();    texture(a);    vertex(10, 10, 0, 0);    vertex(110, 10, 250, 0);    vertex(110, 110, 250, 250);    vertex(10, 110, 0, 250);    endShape();}

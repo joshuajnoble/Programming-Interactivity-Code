@@ -1,0 +1,1 @@
+#include "FirstClass.h"// all applications must have a 'main' methodint main() {    FirstClass firstClass; // here is an instance of our class    firstClass.howManyClasses(); // here we call a method of that inst.    return 0; // here we're all done}
