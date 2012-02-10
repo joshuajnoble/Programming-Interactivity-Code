@@ -41,7 +41,7 @@ void ofPixelator::keyPressed( int key ) {
 		case 113: //p
 		{
 			ofColor cl(255, 255, 0);
-			modImage.getPixelsRef().setColor(mouseX - 500, mouseY - 50, cl);
+			modImage.getPixelsRef().setColor(mouseX - (modImage.getWidth()/2), mouseY - 50, cl);
 			break;
 		}
 		case 122: //z

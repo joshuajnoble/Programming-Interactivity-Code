@@ -16,29 +16,16 @@ void VectorGrfxApp::update(){
     ofBackground(255, 255, 255);
 }
 
-void VectorGrfxApp::draw(){</programlisting>
-          </example>
+void VectorGrfxApp::draw(){
 
-          <para>You don’t want to capture every frame, only capture one frame
-          when the user has pressed the space bar, which sets the capture
-          <literal moreinfo="none">property</literal> to <literal moreinfo="none">true</literal>:</para>
-
-          <programlisting format="linespecific" id="I_programlisting3_d1e18337">    if(capture){
+    if(capture){
         output.beginEPS("test.ps");
     }
     // draw all the shapes in red
     output.setColor(0xff0000);
-    output.fill();</programlisting>
+    output.fill();
 
-          <para>The <literal moreinfo="none">ofxVectorGraphics</literal> class
-          defines a few methods for drawing simple shapes. It is used here to
-          create a circle, rectangle, and triangle:<indexterm id="I_indexterm3_d1e18345" significance="normal">
-              <primary>ofxVectorGraphics object</primary>
-
-              <secondary>methods for drawing simple shapes</secondary>
-            </indexterm></para>
-
-          <programlisting format="linespecific" id="I_programlisting3_d1e18350">    output.circle(100, 100, 80);
+    output.circle(100, 100, 80);
     output.rect(200, 20, 160, 160);
     output.triangle( 460, 20, 380, 180, 560, 180);
     // set the color we'll be using
@@ -51,17 +38,8 @@ void VectorGrfxApp::draw(){</programlisting>
         ang = angles[i] * 180 / PI;
         output.ellipse(ang + 20, ang + 250, mouseX * 0.1 * cos(angles[i]) +
             ang, mouseY * 0.25 * sin(angles[i]) + ang);
-    }</programlisting>
-
-          <para>Now, the application draws to the screen using all the points
-          set in the <literal moreinfo="none" role="keep-together">mouseDragged()</literal> method:<indexterm id="I_indexterm3_d1e18357" significance="normal">
-              <primary>ofxVectorGraphics object</primary>
-
-              <secondary>drawing to screen using points set in mouseDragged(
-              )</secondary>
-            </indexterm></para>
-
-          <programlisting format="linespecific" id="I_programlisting3_d1e18362">    if( pts.size() > 0 ){
+    }
+      if( pts.size() > 0 ){
 
         int numPts = pts.size();
         output.setColor(0x0000ff);
@@ -85,16 +63,9 @@ void VectorGrfxApp::draw(){</programlisting>
         output.endEPS();
         capture =false;
     }
-}</programlisting>
+}
 
-          <para>If the user presses the space bar, set the capture variable to
-          <literal moreinfo="none">true</literal> so that the <literal moreinfo="none">draw()</literal> method will write to the <filename moreinfo="none">.ps</filename> file:<indexterm id="I_indexterm3_d1e18375" significance="normal">
-              <primary>ofxVectorGraphics object</primary>
-
-              <secondary>writing to .ps file</secondary>
-            </indexterm></para>
-
-          <programlisting format="linespecific" id="I_programlisting3_d1e18380">void VectorGrfxApp::keyPressed(int key){
+void VectorGrfxApp::keyPressed(int key){
     if(key == ' '){
         capture = true;
     }

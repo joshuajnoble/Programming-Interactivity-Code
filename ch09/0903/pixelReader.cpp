@@ -20,16 +20,22 @@ void pixelReader::draw() {
     ofSetupScreen();
     pic.draw(0,0);
 	
+	int mX = mouseX;
+	int mY = mouseY;
+
+	if(mX > pixels.getWidth()) mX = pixels.getWidth();
+	if(mX > pixels.getHeight()) mX = pixels.getHeight();
+
 	if(drawPixelGrid) {
 		for( int i = 0; i < 10; i++) {
 			for( int j = 0; j < 10; j++) {
-				ofSetColor( pixels.getColor(mouseX + i - 5, mouseY + j - 5 ), 200 );
-				ofRect( mouseX + (i * 20 - 100), mouseY + (j * 20 - 100), 20, 20 );
+				ofSetColor( pixels.getColor(mX + i - 5, mY + j - 5 ), 200 );
+				ofRect( mX + (i * 20 - 100), mY + (j * 20 - 100), 20, 20 );
 			}
 		}
 	} else {
-		ofSetColor(pixels.getColor(mouseX, mouseY), 200);
-		ofCircle(mouseX, mouseY, 50);
+		ofSetColor(pixels.getColor(mX, mY), 200);
+		ofCircle(mX, mY, 50);
 	}
 	ofSetColor(255, 255, 255);
 }
