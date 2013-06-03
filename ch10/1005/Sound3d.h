@@ -9,7 +9,7 @@ class Sound3D : public ofFmodSoundPlayer {
 	
 	static void initializeFmod();
 	static void closeFmod();
-	void loadSound(string fileName, bool stream = false);
+	bool loadSound(string fileName, bool stream = false);
 	void play();
 	
 	FMOD_VECTOR listenerVelocity, listenerUp, listenerForward, listenerPos, soundPosition, soundVelocity;

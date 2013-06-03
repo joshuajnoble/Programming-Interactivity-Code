@@ -42,7 +42,7 @@ void Sound3D::initializeFmod(){
 	
 }
 
-void Sound3D::loadSound(string fileName, bool stream)
+bool Sound3D::loadSound(string fileName, bool stream)
 {
     result = FMOD_System_CreateSound(sys, ofToDataPath(fileName).c_str(), FMOD_3D, NULL, &sound);
     result = FMOD_Sound_Set3DMinMaxDistance(sound, 1.f, 5000.0f);
@@ -55,6 +55,7 @@ void Sound3D::loadSound(string fileName, bool stream)
         FMOD_Sound_GetLength(sound, &length, FMOD_TIMEUNIT_PCM);
         isStreaming = stream;
     }
+	return bLoadedOk;
 }
 
 void Sound3D::play(){
