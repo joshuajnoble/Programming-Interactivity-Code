@@ -10,9 +10,10 @@ void draw(){
     fill(0);
     beginShape();
     for(int i = 0; i < pts.length; i++){
-	vertex(pts[i].x, pts[i].y);
-        }
+	if(pts[i] != null)vertex(pts[i].x, pts[i].y);
     }
+    endShape();
+}
 
 void mousePressed(){
     if(count > 5){
